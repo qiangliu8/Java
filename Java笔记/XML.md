@@ -1654,3 +1654,209 @@ MVC最早出现在JavaEE三层中的 web层，它可以有效的指导web层的�
 MVc的理念是将软件代码拆分成为组件，单独开发，组合使用〈目的还是为了**解耦合**〉。
 
 ![image-20210101165243046](C:\Users\11026\AppData\Roaming\Typora\typora-user-images\image-20210101165243046.png)
+
+#### 分页
+
+![image-20210103145203518](C:\Users\11026\AppData\Roaming\Typora\typora-user-images\image-20210103145203518.png)
+
+## Cookie
+
+### 什么是Cookie
+
+1. Cookie翻译过来是饼干的意思。
+2. Cookie是服务器通知客户端保存键值对的一种技术。
+3. 客户端有了cookie后，每次请求都发送给服务器。
+4. 每个 cookie的大小不能超过4kb
+
+### 如何创建Cookie  
+
+```java
+//创建Cookie对象
+Cookie cookie1 = new Cookie("key1","value1");
+Cookie cookie2 = new Cookie("key2","value2");
+Cookie cookie3 = new Cookie("key3","value3");
+//通过客户端保存cookie
+resp.addCookie(cookie1);
+resp.addCookie(cookie2);
+resp.addCookie(cookie3);
+resp.getWriter().write("Cookie创建成功！");
+```
+
+### 如何获取Cookie  
+
+```java
+Cookie[] cookies = req.getCookies();
+Cookie mycookie = null;
+for (Cookie cookie:cookies){
+ 	resp.getWriter().write("Cookie["+cookie.getName()+"="+cookie.getValue()+"]<br/>");
+    if(cookie.getName().equals(”key1“)){
+        mycookie = cookie;
+    }
+}
+
+if(mycookie!=null){
+    resp.getWriter().write("找到Cookie");
+}
+```
+
+### Cookie值的修改
+
+方案一:
+
+1. 先创建一个要修改的同名的Cookie对象
+2. 在构造器，同时赋于新的 Cookie值
+3. 调用response.addCookie( Cookie )
+
+![image-20210104222755285](C:\Users\11026\AppData\Roaming\Typora\typora-user-images\image-20210104222755285.png)
+
+方案二:
+
+1. 先查找到需要修改的Cookie对象
+2. 调用setValue()方法赋于新的 Cookie值。
+3. 调用response.addCookie()通知客户端保存修改
+
+```
+Cookie[] cookies = req.getCookies();
+Cookie cookie = CookieUtils.findCookie("key2",cookies);
+cookie.setValue("asd");
+resp.addCookie(cookie);
+resp.getWriter().write("Cookie修改成功！");
+```
+
+### Cookie生命控制
+
+Cookie的生命控制指的是如何管理Cookie什么时候被销毁
+
+```java
+Cookie.setMaxAge()
+```
+
+设置cookie的最大生存时间，以秒为单位。
+
+```java
+//负值意味着cookie不会被持久存储，将在 Web浏览器退出时删除。
+protected void defaultLife(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    Cookie cookie = new Cookie("defautLife","defautLifeName");
+    cookie.setMaxAge(-1); //设置存活时间 关闭浏览器cookie消失
+    resp.addCookie(cookie);
+}
+//0值会导致删除cookie
+protected void deleteNow(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    Cookie cookie = CookieUtils.findCookie("defautLife",req.getCookies());
+    cookie.setMaxAge(0); //立即删除
+    resp.addCookie(cookie);
+}
+//正值表示cookie将在经过该值表示的秒数后过期。
+protected void life3600(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    Cookie cookie = CookieUtils.findCookie("defautLife",req.getCookies());
+    cookie.setMaxAge(3600); //Cookie存活3600秒（1小时）
+    resp.addCookie(cookie);
+}
+```
+
+### Cookie有效路径Path的设置
+
+Cookie的path属性可以有效的过滤哪些Cookie可以发送给服务器，哪些不发。path属性是通过请求的地址来进行有效的过滤。
+
+![image-20210105161253121](C:\Users\11026\AppData\Roaming\Typora\typora-user-images\image-20210105161253121.png)
+
+```java
+protected void testPath(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    Cookie cookie = new Cookie("path1","value1");
+    cookie.setPath(req.getContextPath()+"/abc");
+    resp.addCookie(cookie);
+    resp.getWriter().write("创建了代替有路径的cookie");
+}
+```
+
+## Session会话
+
+Session就是一个接口，一个会话，它是用来维护一个客户端和服务器直接关联的一种技术。
+
+每个客户端都有自己的一个Session会话
+
+Session会话中，经常用来保存用户登录之后的信息。
+
+### 如何创建Session和获取
+
+```java
+//创建和获取Session会话对象
+//第一次调用是：创建Sesson会话
+//之后调用都是：获取创建好的Session会话对象
+HttpSession httpSession = req.getSession();
+
+resp.getWriter().write("Session："+httpSession);
+resp.getWriter().write("SessionisNew："+isNew);
+resp.getWriter().write("Sessionid："+id);
+```
+
+```java
+//判断当前Session是否是刚创建出来的 true表示刚创建 false表示之前创建
+boolean isNew = httpSession.isNew();
+```
+
+```java
+//获取Session会话的唯一标识id
+String id = httpSession.getId();
+```
+
+### Session域中存取数据
+
+```java
+//存
+protected void setAttribute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    req.getSession().setAttribute("session1","valu1");
+    resp.getWriter().write("session存进去了");
+}
+```
+
+```java
+//取
+protected void getAttribute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    Object o =  req.getSession().getAttribute("session1");
+    resp.getWriter().write("session1："+o);
+}
+```
+
+### Session生命周期控制
+
+**获取Session的超时时间**
+
+```java
+protected void defaultLife(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    int  time = req.getSession().getMaxInactiveInterval();
+    resp.getWriter().write("session默认时长："+time);//session默认时长：1800	
+}
+
+```
+
+**设置Session的超时时间**（以秒为单位），超过指定时长，自动销毁  -1表示永不超时 0没用
+
+```
+protected void life3(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    req.getSession().setMaxInactiveInterval(3);
+    resp.getWriter().write("Session3秒超时销毁");
+}
+```
+
+session默认的超时时间长为30分钟。
+因为在Tomcat服务器的配置文件web.xml中默认有以下的配置,它就表示配置了当前Tomcat服务器下所有的session超时配置默认时长为:30分钟。
+
+```xml
+<session-config>
+    <session-timeout>20</session-timeout>
+</session-config>
+```
+
+**销毁删除Session**
+
+```java
+protected void deleteNow(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    req.getSession().invalidate();
+    resp.getWriter().write("session时长为0.即Session马上销毁");
+}
+```
+
+### Session和Cookie的关联
+
+![image-20210105212147108](C:\Users\11026\AppData\Roaming\Typora\typora-user-images\image-20210105212147108.png)
