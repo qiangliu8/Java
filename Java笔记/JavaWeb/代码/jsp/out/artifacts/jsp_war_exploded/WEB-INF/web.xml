@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <servlet>
+        <servlet-name>PringHtml</servlet-name>
+        <servlet-class>com.qiangliu8.serlvet.PringHtml</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PringHtml</servlet-name>
+        <url-pattern>/1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>studentServlet</servlet-name>
+        <servlet-class>com.qiangliu8.serlvet.studentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>studentServlet</servlet-name>
+        <url-pattern>/studentServlet</url-pattern>
+    </servlet-mapping>
+    
+    <listener>
+        <listener-class>com.qiangliu8.serlvet.Listener.myListener</listener-class>
+    </listener>
+</web-app>

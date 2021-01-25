@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <servlet>
+        <servlet-name>HttpServlet</servlet-name>
+        <servlet-class>com.qiangliu8.HttpServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HttpServlet</servlet-name>
+        <url-pattern>/3</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Servlet1</servlet-name>
+        <servlet-class>com.qiangliu8.Servlet1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet1</servlet-name>
+        <url-pattern>/3_Servlet1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Servlet2</servlet-name>
+        <servlet-class>com.qiangliu8.Servlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet2</servlet-name>
+        <url-pattern>/3_Servlet2</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ForwordServlet</servlet-name>
+        <servlet-class>com.qiangliu8.ForwordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ForwordServlet</servlet-name>
+        <url-pattern>/forword</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ResponseIOServlet</servlet-name>
+        <servlet-class>com.qiangliu8.ResponseIOServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResponseIOServlet</servlet-name>
+        <url-pattern>/ResponseIOServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Resopne1</servlet-name>
+        <servlet-class>com.qiangliu8.Resopne1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Resopne1</servlet-name>
+        <url-pattern>/Resopne1</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Resopne2</servlet-name>
+        <servlet-class>com.qiangliu8.Resopne2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Resopne2</servlet-name>
+        <url-pattern>/Resopne2</url-pattern>
+    </servlet-mapping>
+
+</web-app>

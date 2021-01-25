@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="cache-control" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript" src="script/jquery-1.7.2.js"></script>
+		<script type="text/javascript">
+			function ajaxRequest() {
+// 				1、我们首先要创建XMLHttpRequest 
+				var xmlHttpRequest =new XMLHttpRequest();
+// 				2、调用open方法设置请求参数
+				xmlHttpRequest.open("GET","http://localhost:8080/json/ajaxServlet?action=javascriptAjax",false);
+// 				3、在send方法前绑定onreadystatechange事件，处理请求完成后的操作。
+				xmlHttpRequest.onreadystatechange= function (){
+					if (xmlHttpRequest.readyState===4&&xmlHttpRequest.status===200){
+						var json = JSON.parse(xmlHttpRequest.responseText)
+						$("#div01").text(json.name);
+					}
+				}
+// 				4、调用send方法发送请求
+				xmlHttpRequest.send();
+				console.log(123)
+			}
+		</script>
+	</head>
+	<body>	
+		<button onclick="ajaxRequest()">ajax request</button>
+		<div id="div01">
+		</div>
+	</body>
+</html>

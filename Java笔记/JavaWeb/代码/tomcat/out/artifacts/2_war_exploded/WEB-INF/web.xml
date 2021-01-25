@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+
+    <!-- servlet标签给Tomcat配置Servlet程序-->
+    <servlet>
+        <!--servLet-name标签ServLet程序起一个别名（一般是类名）-->
+        <servlet-name>HelloServlet</servlet-name>
+        <!--servLet-cLass是ServLet程序的全类名-->
+        <servlet-class>com.qiangliu8.HelloServlet</servlet-class>
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>刘强</param-value>
+        </init-param>
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:mysql://localhost:3306/test</param-value>
+        </init-param>
+    </servlet>
+
+<!--   servlet-mapping标签给servlet程序配置访问地址 -->
+    <servlet-mapping>
+        <!--   servlet-name程序的作用是告诉服务器，我当前配置的地址给哪个Servlet程序使用 -->
+        <servlet-name>HelloServlet</servlet-name>
+<!--  url-pattern标签配置访问地址 -->
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>HttpServlet</servlet-name>
+        <servlet-class>com.qiangliu8.HttpServlet</servlet-class>
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:mysql://localhost:3306/test</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HttpServlet</servlet-name>
+        <url-pattern>/HttpServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HttpServlet3</servlet-name>
+        <servlet-class>com.qiangliu8.HttpServlet3</servlet-class>
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:mysql://localhost:3306/test</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HttpServlet3</servlet-name>
+        <url-pattern>/HttpServlet3</url-pattern>
+    </servlet-mapping>
+
+    <context-param>
+        <param-name>username</param-name>
+        <param-value>1102644615</param-value>
+    </context-param>
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>Lq060528</param-value>
+    </context-param>
+</web-app>
