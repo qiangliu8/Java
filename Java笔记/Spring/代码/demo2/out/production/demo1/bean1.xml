@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    配置user类的创建-->
+    <bean id="user" class="com.qiangliu8.spring5.User"></bean>
+
+    <bean id="book" class="com.qiangliu8.spring5.Book">
+<!--        使用property定成属性注入-->
+<!--        name:类里面国性名称-->
+<!--        value:向属性注入的值-->
+        <property name="name" value="易经晶"></property>
+        <property name="sex" value="男"></property>
+        <property name="address">
+            <null></null>
+        </property>
+    </bean>
+
+    <bean id="book1" class="com.qiangliu8.spring5.Book" p:name="九阳神功" p:sex="女"></bean>
+
+    <bean id="book2" class="com.qiangliu8.spring5.Book">
+        <property name="name">
+            <value><![CDATA[<<南京>>]]></value>
+        </property>
+    </bean>
+
+    <bean id="orders" class="com.qiangliu8.spring5.Order">
+        <constructor-arg name="oname" value="No.1"></constructor-arg>
+        <constructor-arg name="address" value="包河花园"></constructor-arg>
+    </bean>
+
+</beans>

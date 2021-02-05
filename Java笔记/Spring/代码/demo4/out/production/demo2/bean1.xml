@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="stu" class="com.qiangliu8.collectiontype.Stu">
+        <!--数组类型注入-->
+        <property name="courses">
+            <array>
+                <value>java课程</value>
+                <value>数据库课程</value>
+            </array>
+        </property>
+        <!--list类型属性注入-->
+        <property name="list">
+            <list>
+                <value>list1</value>
+                <value>list2</value>
+                <value>list3</value>
+            </list>
+        </property>
+        <!--map类型属性注入-->
+        <property name="map">
+            <map>
+                <entry key="key1" value="value2"></entry>
+                <entry key="key2" value="value2"></entry>
+            </map>
+        </property>
+        <!--set类型属性注入-->
+        <property name="set">
+            <set>
+                <value>set1</value>
+                <value>set2</value>
+            </set>
+        </property>
+<!--        注入list集合，但值是对象-->
+        <property name="courseList">
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+            </list>
+        </property>
+    </bean>
+
+
+
+<!--    创建多个course对象-->
+    <bean id="course1" class="com.qiangliu8.collectiontype.Course">
+        <property name="cname" value="Spring5"></property>
+    </bean>
+    <bean id="course2" class="com.qiangliu8.collectiontype.Course">
+        <property name="cname" value="MyBatis"></property>
+    </bean>
+</beans>
