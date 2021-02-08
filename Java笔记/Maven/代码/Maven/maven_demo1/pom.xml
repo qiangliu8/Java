@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.qiangliu8</groupId>
+  <artifactId>ch01-maven</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+
+  <!-- https://mvnrepository.com/artifact/junit/junit -->
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+<!--  控制配置 maven构建项目的参数配置，设置jdk的版本-->
+  <build>
+<!--    配置插件-->
+    <plugins>
+<!--      配置具体的插件-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+<!--        插件的名称-->
+        <artifactId>maven-site-plugin</artifactId>
+<!--        插件的版本-->
+        <version>3.3</version>
+<!--        配置插件的信息-->
+        <configuration>
+<!--&lt;!&ndash;          告诉maven，我们写的代码时在jdk1.8上编译的&ndash;&gt;-->
+<!--          <source>1.8</source>-->
+<!--&lt;!&ndash;          我们程序运行在jdk1.8上jdk的&ndash;&gt;-->
+<!--          <target>1.8</target>-->
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <properties>
+    <java.version>15</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+  </properties>
+</project>
