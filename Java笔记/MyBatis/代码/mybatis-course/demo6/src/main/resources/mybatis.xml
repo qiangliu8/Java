@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--    指定properties文件的位置，从类路径根开始找文件-->
+    <properties resource="jdbc.properties"></properties>
+
+    <!--    环境配置：数据库的连接信息
+        default:必须和某个environment的id值一样
+        噶苏mybatis使用哪个数据库的连接信息，也就是访问哪个数据库
+-->
+    <!--    settings:控制mybatis全局行为-->
+    <settings>
+        <!--        设置mybatis输出日志-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <typeAliases>
+<!--        第一个方式 指定一个类型一个自定义别名
+            type:自定义类型的全限定名称
+            alias:别名
+-->
+        <typeAlias type="com.qiangliu8.vo.ViewStudent" alias="vs"></typeAlias>
+<!--        第二种方式
+        <package>name是包名，这个包中的所有类，类名就是别名（类名不区分大小写）-->
+        <package name="com.qiangliu8.domain"/>
+        <package name="com.qiangliu8.vo"/>
+    </typeAliases>
+    
+<!--    配置插件-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
+    <environments default="development">
+        <!--        environment :一个数据库信息的配置，环境id:一个唯一值，自定义，表示环境的名称。-->
+        <environment id="development">
+            <!--            transactionManager：mybatis的事务类型-->
+            <transactionManager type="JDBC"/>
+            <!--            dataSource表示数据源，连接数据库的，-->
+            <!--            type表示数据源的类型，
+                            POOLED：表示使用连接池,mybatis会创建PooledDataSource类
+                            UPOOLED:不适用连接池，再每次执行sql语句，先创建按连接，执行sql,再关闭连接，mybatis会创建一个UnPooledDataSource，管理Connection对象的使用
+                            JNDI:Java命名和目录服务（windows注册表 ）
+            -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <!--        从类路径开始的路径信息 target/classess(类路径) -->
+        <mapper resource="com/qiangliu8/dao/StudentDao.xml"/>
+    </mappers>
+</configuration>

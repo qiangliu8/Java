@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiangliu8.dao.StudentDao">
+    <select id="selectStudents" resultType="com.qiangliu8.domain.Student">
+        select * from student order by id
+    </select>
+    <insert id="insertStudents">
+        insert into Student values(#{id},#{name},#{email},#{age})
+    </insert>
+    <select id="getStudentById" parameterType="java.lang.Integer" resultType="com.qiangliu8.domain.Student">
+        select * from student where id = #{studentId}
+    </select>
+    <select id="selectMulitParam" resultType="com.qiangliu8.domain.Student">
+        select * from student where name = #{myName} or age = #{myAge}
+    </select>
+
+<!--    多个参数：使用Java对象的属性值，作为参数实际值
+        使用对象语法︰#{属性名,javaType=类型名称, jdbcType=数据类型}很少用。
+        javaType:指java中的属性数据类型。
+        jdbcType:在数据库中的数据类型。
+        例如:#{paramName,javaType=java.lang ,string,jdbcType=VARCHAR}
+        简化方式：#{属性名}
+-->
+    <select id="selectMultiObject" resultType="com.qiangliu8.domain.Student">
+        select * from student where name=#{paramName} or age = #{paramAge}
+    </select>
+
+
+    <select id="selectIndex" resultType="com.qiangliu8.domain.Student">
+        select * from student where name=#{arg0} or age = #{arg1}
+    </select>
+<!--    #{属性名.属性名}-->
+    <select id="selectMap" resultType="com.qiangliu8.domain.Student">
+        select * from student where name=#{mapName} or age = #{mapAge}
+    </select>
+
+
+    <select id="selectUserOrder$" resultType="com.qiangliu8.domain.Student">
+        select * from student order by  ${colName}
+    </select>
+</mapper>
+
