@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/expection" />
+    <file type="web" url="file://$PROJECT_DIR$/forward" />
+    <file type="web" url="file://$PROJECT_DIR$/Hello-SpringMVC" />
+    <file type="web" url="file://$PROJECT_DIR$/interceptor" />
+    <file type="web" url="file://$PROJECT_DIR$/interceptor2" />
+    <file type="web" url="file://$PROJECT_DIR$/interceptor_permission" />
+    <file type="web" url="file://$PROJECT_DIR$/path" />
+    <file type="web" url="file://$PROJECT_DIR$/requestmapping" />
+    <file type="web" url="file://$PROJECT_DIR$/returnparam" />
+    <file type="web" url="file://$PROJECT_DIR$/ssm" />
+    <file type="web" url="file://$PROJECT_DIR$/url-pattern" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/Hello-SpringMVC/pom.xml" />
+        <option value="$PROJECT_DIR$/requestmapping/pom.xml" />
+        <option value="$PROJECT_DIR$/returnparam/pom.xml" />
+        <option value="$PROJECT_DIR$/url-pattern/pom.xml" />
+        <option value="$PROJECT_DIR$/path/pom.xml" />
+        <option value="$PROJECT_DIR$/ssm/pom.xml" />
+        <option value="$PROJECT_DIR$/forward/pom.xml" />
+        <option value="$PROJECT_DIR$/expection/pom.xml" />
+        <option value="$PROJECT_DIR$/interceptor/pom.xml" />
+        <option value="$PROJECT_DIR$/interceptor2/pom.xml" />
+        <option value="$PROJECT_DIR$/interceptor_permission/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" default="false" project-jdk-name="15" project-jdk-type="JavaSDK" />
+</project>

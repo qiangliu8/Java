@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="returnparam:war">
+    <output-path>$PROJECT_DIR$/returnparam/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>returnparam</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Hello-SpringMVC.war">
+      <element id="artifact" artifact-name="returnparam:war exploded" />
+    </root>
+  </artifact>
+</component>

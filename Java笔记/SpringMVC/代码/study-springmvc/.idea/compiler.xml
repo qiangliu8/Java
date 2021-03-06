@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="exception" />
+        <module name="path" />
+        <module name="Hello-SpringMVC" />
+        <module name="url-pattern" />
+        <module name="forward" />
+        <module name="interceptor" />
+        <module name="interceptor_permission" />
+        <module name="ssm" />
+        <module name="interceptor2" />
+        <module name="returnparam" />
+        <module name="requestmapping" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="exception" target="1.8" />
+      <module name="forward" target="1.8" />
+      <module name="Hello-SpringMVC" target="1.7" />
+      <module name="interceptor" target="1.8" />
+      <module name="interceptor2" target="1.8" />
+      <module name="interceptor_permission" target="1.8" />
+      <module name="path" target="1.7" />
+      <module name="requestmapping" target="1.7" />
+      <module name="returnparam" target="1.7" />
+      <module name="ssm" target="1.8" />
+      <module name="url-pattern" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
