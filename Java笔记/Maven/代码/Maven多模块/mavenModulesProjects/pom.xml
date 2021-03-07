@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.qiangliu8</groupId>
+    <artifactId>mavenModulesProjects</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>002-son</module>
+        <module>003-web</module>
+    </modules>
+
+    <!--packing标签的是指定的打包方法
+        默认是jar,如果pom文件中没有packaging标签那么默认就是打开jar
+    -->
+    <properties>
+        <maven.compiler.source>15</maven.compiler.source>
+        <maven.compiler.target>15</maven.compiler.target>
+
+        <spring-webmvc-version>5.2.5.RELEASE</spring-webmvc-version>
+        <mysql-connector-java-version>8.0.13</mysql-connector-java-version>
+
+    </properties>
+
+
+    <!--
+        maven父工程必须遵循一下两点要求
+        1.packaging标签的文本内容必须设置为pom
+        2.把src目录删除掉
+    -->
+    <!--父工程添加的依赖，子模块会无条件继承-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.11</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring-webmvc-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector-java-version}</version>
+        </dependency>
+    </dependencies>
+</project>
