@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--    Map集合结构
+    key value
+    0   user
+    1   user
+    2   user
+    3   user
+...
+
+-->
+<div th:each="userMap,userMapState:${userMap}">
+    <span th:text="${userMapState.index}"></span>
+    <span th:text="${userMapState.count}"></span>
+
+    <span th:text="${userMap.key}"></span>
+    <span th:text="${userMap.value}"></span>
+    <span th:text="${userMap.value.id}"></span>
+    <span th:text="${userMap.value.nick}"></span>
+</div>
+</body>
+</html>

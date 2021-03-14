@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--条件判断如果满足条件显示(执行),否则相反-->
+<div th:if="${sex eq 1}">男</div>
+<div th:if="${sex eq 0}">女</div>
+<!--条件判断 用法:与th:if用法相反,即条件判断取反-->
+<div th:unless="${sex eq 1}">女</div>
+
+<!--switch-->
+<h1 th:switch="${productType}">
+    <span th:case="0">产品1</span>
+    <span th:case="1">产品2</span>
+    <span th:case="2">产品3</span>
+</h1>
+
+</body>
+</html>

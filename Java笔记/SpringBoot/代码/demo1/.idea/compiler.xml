@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="restful" />
+        <module name="007-configuration" />
+        <module name="servlet" />
+        <module name="005-springboot-multi-environment" />
+        <module name="closelogo" />
+        <module name="thymeleaf" />
+        <module name="redis" />
+        <module name="logback" />
+        <module name="character" />
+        <module name="002-springboot-springmvc" />
+        <module name="java" />
+        <module name="thymeleaf2" />
+        <module name="001-springboot-first" />
+        <module name="006-springboot-mutlti-environment-yml" />
+        <module name="springboot-mybatis" />
+        <module name="004-springboot-properties-yml" />
+        <module name="003-springboot-context-path" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="001-springboot-first" target="15" />
+      <module name="002-springboot-springmvc" target="15" />
+      <module name="003-springboot-context-path" target="15" />
+      <module name="004-springboot-properties-yml" target="15" />
+      <module name="005-springboot-multi-environment" target="15" />
+      <module name="006-springboot-mutlti-environment-yml" target="15" />
+      <module name="007-configuration" target="15" />
+      <module name="character" target="15" />
+      <module name="closelogo" target="15" />
+      <module name="java" target="15" />
+      <module name="logback" target="15" />
+      <module name="redis" target="15" />
+      <module name="restful" target="15" />
+      <module name="servlet" target="15" />
+      <module name="springboot-mybatis" target="15" />
+      <module name="springboot001" target="15" />
+      <module name="thymeleaf" target="15" />
+      <module name="thymeleaf2" target="15" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="001-springboot-first" options="-parameters" />
+      <module name="002-springboot-springmvc" options="-parameters" />
+      <module name="003-springboot-context-path" options="-parameters" />
+      <module name="004-springboot-properties-yml" options="-parameters" />
+      <module name="005-springboot-multi-environment" options="-parameters" />
+      <module name="006-springboot-mutlti-environment-yml" options="-parameters" />
+      <module name="007-configuration" options="-parameters" />
+      <module name="character" options="-parameters" />
+      <module name="closelogo" options="-parameters" />
+      <module name="java" options="-parameters" />
+      <module name="logback" options="-parameters" />
+      <module name="redis" options="-parameters" />
+      <module name="restful" options="-parameters" />
+      <module name="servlet" options="-parameters" />
+      <module name="springboot-mybatis" options="-parameters" />
+      <module name="springboot001" options="-parameters" />
+      <module name="thymeleaf" options="-parameters" />
+      <module name="thymeleaf2" options="-parameters" />
+    </option>
+  </component>
+</project>

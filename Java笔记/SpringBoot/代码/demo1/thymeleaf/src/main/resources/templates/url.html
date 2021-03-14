@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>URL路径表达式@{....}</h1>
+    <a th:href="@{/user/detail}">跳转至:/user/detail</a>
+    <a th:href="@{http://localhost:8080/urlParam?name=liuqiang}">跳转至:/urlParam</a>
+    <a th:href="@{'urlParam?name='+${name}}">跳转至:/urlParam</a>
+    <a th:href="@{'/RESTful/'+${id}}">请求路径为RESTful风格</a>
+</body>
+</html>

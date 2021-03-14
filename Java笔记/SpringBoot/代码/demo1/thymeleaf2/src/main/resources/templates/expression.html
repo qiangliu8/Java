@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <span th:text="${#httpSession.getAttribute('address')}"></span>
+    <span th:text="${#session.getAttribute('address')}"></span>
+    <span th:text="${session.address}"></span>
+    <script type="text/javascript" th:inline="javascript">
+        //协议名称
+        const scheme = [[${#request.getScheme()}]];
+        //获取服务器名称
+        const serverName = [[${#request.getServerName()}]];
+        //服务服务器端口号
+        const serverPort = [[${#request.getServerPort()}]];
+        //获取上下文跟
+        const contextPath = [[${#request.getContextPath()}]];
+        console.log(scheme+"://"+serverName+":"+serverPort+"/"+contextPath);
+
+        //请求路径
+        var requestURL = [[${#request.requestURL}]]
+       console.log(requestURL);
+        //请求参数
+        var queryString = [[${#request.queryString}]]
+        console.log(queryString);
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--循环遍历Array数组(使用方法同list一样)-->
+
+<div th:each="user,userState:${eachArray}">
+    <span th:text="${userState.index}"></span>
+    <span th:text="${userState.count}"></span>
+
+    <span th:text="${user.id}"></span>
+    <span th:text="${user.nick}"></span>
+    <span th:text="${user.phone}"></span>
+    <span th:text="${user.address}"></span>
+</div>
+</body>
+</html>

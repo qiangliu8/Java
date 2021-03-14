@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>内联表达式</title>
+</head>
+<body>
+
+    <div th:text="${data}"></div>
+
+<h1>内联文本 不依赖于标签 th:inline="text"</h1>
+<div th:inline="text">
+数据：[[${data}]]
+</div>
+    数据：[[${data}]]
+
+<script type="text/javascript" th:inline="text">
+    console.log("[[${data}]]");
+</script>
+</body>
+</html>
