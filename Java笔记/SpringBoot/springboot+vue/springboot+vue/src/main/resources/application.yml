@@ -1,0 +1,14 @@
+#mysql
+spring:
+  datasource:
+    driverClassName:  com.mysql.cj.jdbc.Driver
+    url:  jdbc:mysql://localhost:3306/sport?serverTimezone=UTC
+    username: root
+    password: Lq060528
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.qiangliu8.demo.bean
+
+server:
+  port: 9090

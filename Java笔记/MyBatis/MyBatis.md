@@ -686,7 +686,26 @@ public  void TestSelectMapById(){
    }
    ```
 
+   当有查询里面有嵌套集合时
    
+   ```xml
+   <!--关系映射-->
+   <resultMap id="menuMap" type="MainMenu">
+       <id column="id" property="id"></id>
+       <result column="title" property="title"></result>
+       <result column="path" property="path"></result>
+       <collection property="subMenuList" ofType="SubMenu">
+           <id column="sid" property="id"></id>
+           <result column="stitle" property="title"></result>
+           <result column="spath" property="path"></result>
+       </collection>
+   </resultMap>
+   <select id="getMainMenus" resultMap="menuMap">
+       select mm.*, sm.id as sid,sm.title as stitle, sm.path as spath
+       from mainmenu as mm,submenu as sm
+       where mm.id = sm.mid
+   </select>
+   ```
 
 #### 列名和属性名不一样的方式
 
