@@ -805,7 +805,7 @@ data文件夹是mysql用来存放数据库文件的，数据库的表数据都�
 
 ![image-20210317215705575](C:\Users\11026\AppData\Roaming\Typora\typora-user-images\image-20210317215705575.png)
 
-#### 七、初始化mysql
+### 七、初始化mysql
 
 使用mysql的 mysqld 命令初始化数据库的基本信息。切换到mysq8.0/bin目录下执行。
 
@@ -861,7 +861,7 @@ mysql安装后，需要更改mysql8.08整个文件夹目录权限，更改所属
 
 例如：alter user 'root'@'localhost' identified by 'Lq060528';
 
-![image-20210318111854181](C:\Users\11026\AppData\Roaming\Typora\typora-user-images\image-20210318111854181.png)
+![-R](C:\Users\11026\AppData\Roaming\Typora\typora-user-images\image-20210318111854181.png)
 
 ### 十三、授权远程访问
 
@@ -869,15 +869,19 @@ mysql安装后，需要更改mysql8.08整个文件夹目录权限，更改所属
 
 授权命令:grant
 
-语法：grant all privileges on *.* to root@'%' identified by 'Lq060528';
+*#创建账户*
 
+>  create user 'root'@'1ocalhost' identified by  'password' 
 
+#赋予权限，with grant option这个选项表示该用户可以将自己拥有的权限授权给别人
 
-![image-20210318142234704](C:\Users\11026\AppData\Roaming\Typora\typora-user-images\image-20210318142234704.png)
+>  grant all privileges on *.* to 'root'@'1ocalhost' with grant option
 
-刷新权限 flush privileges;
+ *#改密码&授权超用户，flush privileges 命令本质上的作用是将当前user和privilige表中的用户信息/权限设置从mysql库(MySQL数据库的内置库)中提取到内存里*
 
-![img](file:///C:\Users\11026\AppData\Local\Temp\ksohtml9568\wps1.jpg) 
+>  flush privileges;
+
+![image-20210321195232048](C:\Users\11026\AppData\Roaming\Typora\typora-user-images\image-20210321195232048.png)
 
 **\关闭防火墙：\**systemctl stop firewalld
 
@@ -897,7 +901,15 @@ mysql安装后，需要更改mysql8.08整个文件夹目录权限，更改所属
 
 ![image-20210318142948381](C:\Users\11026\AppData\Roaming\Typora\typora-user-images\image-20210318142948381.png)
 
+### 十五、关闭mysql服务
 
+mysql-5.7.18/bin目录下执行：./mysqladmin -uroot -p shutdown输入密码关闭
+
+![img](file:///C:\Users\11026\AppData\Local\Temp\ksohtml20512\wps1.jpg) 
+
+查看mysql进程，已经没有mysqld_safe
+
+![img](file:///C:\Users\11026\AppData\Local\Temp\ksohtml20512\wps2.jpg) 
 
 
 

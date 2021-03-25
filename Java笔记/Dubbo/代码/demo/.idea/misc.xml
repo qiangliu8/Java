@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/001-link-provider" />
+    <file type="web" url="file://$PROJECT_DIR$/002-link-consumer" />
+    <file type="web" url="file://$PROJECT_DIR$/003-link-interface" />
+    <file type="web" url="file://$PROJECT_DIR$/004-link-userservice-provider" />
+    <file type="web" url="file://$PROJECT_DIR$/005-link-consumer" />
+    <file type="web" url="file://$PROJECT_DIR$/007-zk-userservice-provider" />
+    <file type="web" url="file://$PROJECT_DIR$/008-zk-consumer" />
+    <file type="web" url="file://$PROJECT_DIR$/009-zk-userservice-mutli-provider" />
+    <file type="web" url="file://$PROJECT_DIR$/010-zk-mutli-consumer" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/001-link-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/002-link-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/link-interface/pom.xml" />
+        <option value="$PROJECT_DIR$/004-link-userservice-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/005-link-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/007-zk-userservice-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/006-zk-interface/pom.xml" />
+        <option value="$PROJECT_DIR$/008-zk-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/009-zk-userservice-mutli-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/010-zk-mutli-consumer/pom.xml" />
+      </list>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="009-userservice-provider"/>
+    <dubbo:protocol name="dubbo" port="20880"/>
+    <dubbo:registry address="zookeeper://localhost:2181"/>
+    <!--不管是否一个接口有多个实现类，只要服务提供者指定的版本号后，那作为消费者引用远程接口服务的时候就必须指定版本号-->
+    <dubbo:service interface="com.qiangliu8.dubbo.service.UserService" ref="userService1" version="1.0.0" retries="2"/>
+    <dubbo:service interface="com.qiangliu8.dubbo.service.UserService" ref="userService2" version="2.0.0"/>
+    <bean class="com.qiangliu8.dubbo.service.impl.UserServiceImpl1" name="userService1"/>
+    <bean class="com.qiangliu8.dubbo.service.impl.UserServiceImpl2" name="userService2"/>
+</beans>

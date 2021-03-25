@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="link-interface:war">
+    <output-path>$PROJECT_DIR$/link-interface/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>link-interface</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="link-interface-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="link-interface:war exploded" />
+    </root>
+  </artifact>
+</component>
